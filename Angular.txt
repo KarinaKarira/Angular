@@ -1,0 +1,86 @@
+#ng new <name>-->we have to do this every time.It is same as creating an app in django
+
+#ng serve--->same as python manage.py runserver(as good as runserver)
+#type localhost:4200 then on the browser
+
+package.json mein we write humko kya kya chahiye along with the version needed
+#install karke it puts into node_modules
+#ng serve-->runserver
+
+#Angular.json mein jayega phle and then it goes to main.ts
+#variable name written in app.component.ts file can be accessed using {{}}
+
+#ng serve ka flow is as follows:
+phle angular.json->main.ts->appModule ke andhar jana hai->@NgModule(declarations,import(can contain modules only),export(can contain components),providers(services),bootstrap(only in appModule))->appComponent->component ke pass 4 cheese hain .html,.css,.ts,.specs.ts(redundant) bydefault appComponent.ts open hoti hai jisme hume selector,html and css files ka information hota hai
+
+#selector is used to get page which is first going to be shown
+#index.html mein write <selectorName></selectorName>
+
+#providers(services) mein we define the logic of fetching data from backend.
+
+#Angular 1 and 2 are called as AngularJs->mvc
+#rest are plain angular->mvvm
+
+#phases of development:
+#development phase-->YAT phase-->production phase(PROD)
+
+angular.json->main.ts(env)->appModule(@NgModule-->decclaration,providers,import,export,bootstrap)->appcomponent.ts(.html,.css,.ts)
+
+#plain and routing module-->types of modules
+#syntax to create a module-->ng g m <module_name>
+#g is for generate and m for module
+
+#styleUrls->array->can add multiple css files
+#one component can be inside only one module.
+#if we don't specify the module_name then it creates a component in appModule
+#in order to create a component inside module then the command is ng g c <module_name>/<component_name> --module=<module_name>
+#above command adds the component to declarations automatically.
+
+#we can only access elements of component that ARE IN THE SAME MODULE.
+#if we try to access anything that is not in the same module then it shows the error of 'component not known'
+
+#data binding/interpolation-->ts file se HTML mein jana
+#event binding-->html se event fire karenge to access ts function  
+#<button (click)="clicked()">Click me</button> 
+#ngModel->[()]-->banana in a box
+
+#DIRECTIVE->adds the DOM to view/modifies the view/changes the structure
+
+#add karne ke liye we have COMPONENT(component is a SPECIAL TYPE OF DIRECTIVE)
+#modify karne ke liye we have ATTRIBUTE DIRECTIVES(ngClass,ngStyle)
+#ngClass->conditional classes daalne ke liye
+#we can add multiple classes on ngClass by passing the classes in the form of object(key-value pair).(key is the class_name and value is the condition) 
+
+#every variable has to have a datatype because implicit any is not allowed.
+
+#structural directives(prefer writing with a star):change the structure of the body
+#ngIf,ngSwitch,ngFor
+
+#interface as good as blueprint(defines the type of each field)
+#save it in app->shared-> interfaces-> <interface_name.interface.ts>
+
+#3/09/22
+#form takes a variable.
+#@Input decorator-->component ko variable pass karna as []
+#works only if a component is a child component structurally.
+#[] is ke andhar jo naam denge wohi Input decorator ke sath likhna hai
+
+#@Injectable-->isko hum inject kar skte hain(Injector makes an object)
+#agar kisi object ko kisi dusre object ki need hai then we create a service that has an Injectable decorator
+#Injectables ko use karna hai toh can use in constructor(private/public <ref_name>:<class_name>).
+
+#whenever app is started,the injector creates all the objects that have @Injectable decorator 
+#Any class that needs a service will get it from the injector
+#SAME object is passed to all the classes that need the particular class.So changes in one are reflected in all.
+
+#mvvm
+#Dependency Injection->object baar baar banane ki jarurat nahi.
+#providedIn:root->available everywhere
+
+#logical things are always written in init and not in constructor.
+#mvvm frame->view ViewModel Model
+#sabse phle jayega view ke pass 
+#view model does the intermediate work jo model aur view dono mein nahi aa skta
+
+#phle constructor call hoga then ngOnInit()
+#services ko constructor mein likhna hai,logic init mein
